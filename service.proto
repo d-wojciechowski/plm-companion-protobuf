@@ -22,6 +22,12 @@ message LogLine {
 
 message LogFileLocation{
     string fileLocation = 1;
+    Source logType = 2;
+    enum Source{
+        METHOD_SERVER = 0;
+        BACKGROUND_METHOD_SERVER = 1;
+        CUSTOM = 2;
+    }
 }
 
 service LogViewerService{
