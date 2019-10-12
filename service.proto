@@ -13,17 +13,23 @@ message Response {
 }
 
 service CommandService {
-    rpc execute(Command) returns (Response);
+    rpc execute (Command) returns (Response);
 }
 
 message LogLine {
     string message = 1;
 }
 
-message LogFileLocation{
+message LogFileLocation {
     string fileLocation = 1;
+    Source logType = 2;
+    enum Source {
+        METHOD_SERVER = 0;
+        BACKGROUND_METHOD_SERVER = 1;
+        CUSTOM = 2;
+    }
 }
 
-service LogViewerService{
-    rpc getLogs(LogFileLocation) returns (stream LogLine);
+service LogViewerService {
+    rpc getLogs (LogFileLocation) returns (stream LogLine);
 }
