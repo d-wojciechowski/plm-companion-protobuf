@@ -19,11 +19,11 @@ message Path{
 message FileMeta {
     string name = 1;
     bool isDirectory = 2;
-    string path = 3;
+    repeated FileMeta childFiles = 3;
 }
 
 message FileResponse {
-    repeated FileMeta metas = 1;
+    repeated FileMeta fileTree = 1;
 }
 
 service FileService{
