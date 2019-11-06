@@ -12,6 +12,26 @@ message Response {
     string message = 2;
 }
 
+message Path{
+    string name = 1;
+    bool fullExpand = 2;
+}
+
+message FileMeta {
+    string name = 1;
+    bool isDirectory = 2;
+    repeated FileMeta childFiles = 3;
+}
+
+message FileResponse {
+    repeated FileMeta fileTree = 1;
+    string separator = 2;
+}
+
+service FileService{
+    rpc navigate(Path) returns (FileResponse);
+}
+
 service CommandService {
     rpc execute (Command) returns (Response);
 }
