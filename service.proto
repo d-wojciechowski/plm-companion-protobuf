@@ -26,6 +26,7 @@ message FileMeta {
 message FileResponse {
     repeated FileMeta fileTree = 1;
     string separator = 2;
+    string os = 3;
 }
 
 service FileService{
