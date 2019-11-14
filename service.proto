@@ -12,7 +12,7 @@ message Response {
     string message = 2;
 }
 
-message Path{
+message Path {
     string name = 1;
     bool fullExpand = 2;
 }
@@ -29,8 +29,24 @@ message FileResponse {
     string os = 3;
 }
 
-service FileService{
-    rpc navigate(Path) returns (FileResponse);
+message Chunk {
+    bytes Content = 1;
+}
+
+enum UploadStatusCode {
+    Unknown = 0;
+    Ok = 1;
+    Failed = 2;
+}
+
+message UploadStatus {
+    string Message = 1;
+    UploadStatusCode Code = 2;
+}
+
+service FileService {
+    rpc navigate (Path) returns (FileResponse);
+    rpc send (stream Chunk) returns (UploadStatus);
 }
 
 service CommandService {
