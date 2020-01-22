@@ -15,4 +15,5 @@ message Response {
 
 service CommandService {
     rpc execute (Command) returns (Response);
+    rpc superExecute (stream Command) returns (Response);
 }
