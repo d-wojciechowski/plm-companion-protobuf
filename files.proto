@@ -1,16 +1,7 @@
 syntax = "proto3";
 
-package pl.dwojciechowski.proto;
-
-message Command {
-    string command = 1;
-    string args = 2;
-}
-
-message Response {
-    int32 status = 1;
-    string message = 2;
-}
+option java_package = "pl.dwojciechowski.proto.files";
+option java_multiple_files = true;
 
 message Path {
     string name = 1;
@@ -47,10 +38,6 @@ message UploadStatus {
 service FileService {
     rpc navigate (Path) returns (FileResponse);
     rpc send (stream Chunk) returns (UploadStatus);
-}
-
-service CommandService {
-    rpc execute (Command) returns (Response);
 }
 
 message LogLine {
