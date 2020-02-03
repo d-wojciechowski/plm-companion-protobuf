@@ -9,10 +9,17 @@ message Command {
 }
 
 message Response {
-    int32 status = 1;
+    Status status = 1;
     string message = 2;
+}
+
+enum Status {
+    RUNNING = 0;
+    FINISHED = 1;
+    FAILED = 2;
 }
 
 service CommandService {
     rpc execute (Command) returns (Response);
+    rpc executeStreaming (Command) returns (stream Response);
 }
