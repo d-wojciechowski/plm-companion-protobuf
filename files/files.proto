@@ -2,6 +2,7 @@ syntax = "proto3";
 
 option java_package = "pl.dwojciechowski.proto.files";
 option java_multiple_files = true;
+option go_package = "files";
 
 message Path {
     string name = 1;
