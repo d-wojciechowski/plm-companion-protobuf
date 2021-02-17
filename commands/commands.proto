@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option java_package = "pl.dwojciechowski.proto.commands";
 option java_multiple_files = true;
-option go_package = "commands";
+option go_package = "github.com/d-wojciechowski/plm-companion-addon/proto/commands";
 
 message Command {
     string command = 1;
