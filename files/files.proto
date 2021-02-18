@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option java_package = "pl.dwojciechowski.proto.files";
 option java_multiple_files = true;
-option go_package = "github.com/d-wojciechowski/plm-companion-addon/proto/files";
+option go_package = "files";
 
 message Path {
     string name = 1;
