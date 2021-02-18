@@ -38,7 +38,7 @@ message UploadStatus {
 
 service FileService {
     rpc navigate (Path) returns (FileResponse);
-    rpc send (stream Chunk) returns (UploadStatus);
+    rpc send (stream Chunk) returns (stream UploadStatus);
 }
 
 message LogLine {
