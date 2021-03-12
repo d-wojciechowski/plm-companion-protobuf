@@ -23,6 +23,7 @@ message FileResponse {
 
 message Chunk {
     bytes Content = 1;
+    string filePath = 2;
 }
 
 enum UploadStatusCode {
